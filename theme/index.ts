@@ -91,7 +91,7 @@ const theme = extendTheme(
   withDefaultVariant({
     variant: 'filled',
     components: ['Input', 'Select'],
-  }),
+  })
 );
 
 export default theme;
