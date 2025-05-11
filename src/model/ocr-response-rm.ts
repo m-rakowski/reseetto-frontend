@@ -1,6 +1,5 @@
 export interface OcrResponseRM {
-    text: string;
-    total: string;
-    savedFileName: string;
+  text: string;
+  total: string;
+  savedFileName: string;
 }
-

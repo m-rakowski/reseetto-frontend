@@ -4,8 +4,8 @@ module.exports = {
     return [
       {
         source: '/backend/:path*',
-        destination: process.env.BACKEND_HOST+'/:path*' // Proxy to Backend
+        destination: process.env.BACKEND_HOST + '/:path*', // Proxy to Backend
       },
-    ]
+    ];
   },
-}
+};

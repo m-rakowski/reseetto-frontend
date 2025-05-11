@@ -1,5 +1,5 @@
 // Selectors
-import {AppState} from "../../../store";
+import { AppState } from '../../../store';
 
 export const getImageSrc = (state: AppState) => state.indexPage.imageSrc;
 export const getOcrResponse = (state: AppState) => state.indexPage.ocrResponse;
