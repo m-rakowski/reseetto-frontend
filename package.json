@@ -2,7 +2,7 @@
   "dependencies": {
     "@auth0/nextjs-auth0": "^1.6.1",
     "@chakra-ui/icons": "^2.2.4",
-    "@chakra-ui/react": "^3.17.0",
+    "@chakra-ui/react": "^2.8.2",
     "@chakra-ui/theme-tools": "^2.2.6",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
