@@ -24,9 +24,9 @@ import {
 } from '@chakra-ui/react';
 import Dropzone from '../ui/components/dropzone';
 import { JsqrScanner } from '../ui/components/jsqr-scanner';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { indexPageSlice } from '../redux/slices/indexPageSlice/indexPageSlice';
-import { updateTotal, uploadFileToBackend } from '../redux/slices/indexPageSlice/effects/effects';
+import { updateTotal, uploadFileToBackend } from '../redux/slices/indexPageSlice/thunks';
 import {
   getErrorMessage,
   getImageSrc,
@@ -36,13 +36,13 @@ import {
 } from '../redux/slices/indexPageSlice/selectors/selectors';
 
 export default function Index() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const imageSrc = useSelector(getImageSrc);
-  const inputValue = useSelector(getInputValue);
-  const ocrResponse = useSelector(getOcrResponse);
-  const errorMessage = useSelector(getErrorMessage);
-  const isFetching = useSelector(getIsFetching);
+  const imageSrc = useAppSelector(getImageSrc);
+  const inputValue = useAppSelector(getInputValue);
+  const ocrResponse = useAppSelector(getOcrResponse);
+  const errorMessage = useAppSelector(getErrorMessage);
+  const isFetching = useAppSelector(getIsFetching);
 
   const toast = useToast();
 
@@ -131,7 +131,7 @@ export default function Index() {
                   colorScheme="teal"
                   size="md"
                   disabled={!ocrResponse}
-                  onClick={() => dispatch(updateTotal(inputValue, ocrResponse?.savedFileName))}
+                  onClick={() => dispatch(updateTotal({ newTotal: inputValue, savedFileName: ocrResponse?.savedFileName }))}
                 >
                   Send
                 </Button>

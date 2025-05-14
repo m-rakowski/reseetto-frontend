@@ -3,7 +3,7 @@ import '../../styles/Uploaded.module.scss';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import UploadedFileCard from '../ui/components/uploaded_file_card';
 import { UploadedFileRM } from '../model/uploaded-file-r-m';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import {
   deleteFile,
   downloadUploadedFiles,
@@ -12,9 +12,9 @@ import {
 } from '../redux/slices/uploadedFilesSlice/uploadedFilesSlice';
 
 export default function Uploaded() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
-  const uploadedList = useSelector(getUploadedFiles);
+  const uploadedList = useAppSelector(getUploadedFiles);
 
   useEffect(() => {
     dispatch(downloadUploadedFiles());
@@ -30,7 +30,7 @@ export default function Uploaded() {
                 uploadedFile={uploadedFile}
                 onDelete={() => dispatch(deleteFile(uploadedFile.savedFileName))}
                 onUpdate={(newTotal, savedFileName) =>
-                  dispatch(updateTotal(newTotal, savedFileName))
+                  dispatch(updateTotal({ newTotal, savedFileName }))
                 }
               />
             </Box>
